@@ -1,0 +1,186 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  color: white;
+  background-color: #203b2a;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  padding: 12px;
+  color: white;
+  border: 2px solid #d49b45;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.eyebrow,
+.sectionLabel {
+  margin: 0 0 5px;
+  color: #b87928;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+}
+
+.status {
+  padding: 8px 12px;
+  border: 1px solid white;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.main {
+  width: 84%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 50px 0;
+  flex: 1;
+}
+
+.welcomeCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  color: white;
+  background-color: #31553c;
+  border-radius: 12px;
+}
+
+.welcomeCard h2 {
+  margin: 0;
+  font-size: 42px;
+}
+
+.description {
+  max-width: 600px;
+  margin: 18px 0 0;
+  line-height: 1.6;
+}
+
+.guitarMark {
+  color: #d49b45;
+  font-size: 100px;
+}
+
+.overview {
+  margin-top: 45px;
+}
+
+.sectionHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sectionHeading h2 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.sectionHeading span {
+  color: #666666;
+  font-size: 14px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.stepCard {
+  padding: 25px;
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+}
+
+.stepNumber {
+  color: #b87928;
+  font-weight: bold;
+}
+
+.stepCard h3 {
+  margin: 20px 0 8px;
+}
+
+.stepCard p {
+  margin: 0;
+  color: #666666;
+  line-height: 1.5;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 8%;
+  color: #666666;
+  background-color: #e9e4da;
+  font-size: 13px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .status,
+  .guitarMark {
+    display: none;
+  }
+
+  .main {
+    width: 90%;
+    padding: 30px 0;
+  }
+
+  .welcomeCard {
+    padding: 25px;
+  }
+
+  .welcomeCard h2 {
+    font-size: 32px;
+  }
+
+  .sectionHeading {
+    display: block;
+  }
+
+  .sectionHeading span {
+    display: block;
+    margin-top: 8px;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    display: block;
+  }
+
+  .footer p + p {
+    margin-top: 8px;
+  }
+}

@@ -41,13 +41,6 @@
   font-size: 24px;
 }
 
-.status {
-  padding: 8px 12px;
-  border: 1px solid white;
-  border-radius: 20px;
-  font-size: 13px;
-}
-
 .main {
   width: 84%;
   max-width: 1100px;
@@ -111,6 +104,32 @@
   background-color: white;
 }
 
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.filterBar label {
+  color: #203b2a;
+  font-weight: bold;
+}
+
+.filterBar select {
+  padding: 9px;
+  background-color: white;
+  border: 1px solid #bbbbbb;
+  border-radius: 5px;
+}
+
+.registryLayout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
 .sectionHeading {
   display: flex;
   justify-content: space-between;
@@ -170,7 +189,6 @@
 }
 
 @media (max-width: 700px) {
-  .status,
   .guitarMark {
     display: none;
   }
@@ -202,6 +220,15 @@
   }
 
   .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .filterBar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .registryLayout {
     grid-template-columns: 1fr;
   }
 

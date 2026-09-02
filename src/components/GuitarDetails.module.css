@@ -1,0 +1,64 @@
+.card {
+  padding: 25px;
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-top: 4px solid #b87928;
+  border-radius: 10px;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.label {
+  margin: 0 0 6px;
+  color: #b87928;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.heading h3,
+.card > h3 {
+  margin: 0;
+  color: #203b2a;
+  font-size: 22px;
+}
+
+.roleBadge {
+  padding: 6px 10px;
+  color: white;
+  background-color: #31553c;
+  border-radius: 15px;
+  font-size: 12px;
+}
+
+.details {
+  margin: 24px 0 0;
+}
+
+.details div {
+  padding: 12px 0;
+  border-top: 1px solid #eeeeee;
+}
+
+.details dt {
+  margin-bottom: 4px;
+  color: #777777;
+  font-size: 12px;
+}
+
+.details dd {
+  margin: 0;
+  color: #222222;
+  font-weight: bold;
+}
+
+.instruction {
+  margin: 12px 0 0;
+  color: #666666;
+  line-height: 1.5;
+}

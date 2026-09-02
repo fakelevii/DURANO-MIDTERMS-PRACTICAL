@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import GuitarDetails from './components/GuitarDetails'
 import GuitarForm from './components/GuitarForm'
 import GuitarTable from './components/GuitarTable'
 import styles from './App.module.css'
@@ -7,6 +8,14 @@ function App() {
   const [guitars, setGuitars] = useState([])
   const [currentView, setCurrentView] = useState('form')
   const [selectedGuitar, setSelectedGuitar] = useState(null)
+  const [activeGuitar, setActiveGuitar] = useState(null)
+  const [roleFilter, setRoleFilter] = useState('All')
+
+  useEffect(() => {
+    if (selectedGuitar) {
+      setActiveGuitar(selectedGuitar)
+    }
+  }, [selectedGuitar])
 
   function addGuitar(newGuitar) {
     setGuitars([...guitars, newGuitar])
@@ -16,6 +25,13 @@ function App() {
   function selectGuitar(guitar) {
     setSelectedGuitar(guitar)
   }
+
+  const filteredGuitars = guitars.filter((guitar) => {
+    if (roleFilter === 'All') {
+      return true
+    }
+    return guitar.role === roleFilter
+  })
 
   return (
     <div className={styles.app}>
@@ -27,7 +43,6 @@ function App() {
             <h1 className={styles.title}>Inventory Manager</h1>
           </div>
         </div>
-        <span className={styles.status}>Set 2 Project</span>
       </header>
 
       <main className={styles.main}>
@@ -91,7 +106,6 @@ function App() {
           <section className={styles.contentSection}>
             <div className={styles.sectionHeading}>
               <div>
-                <p className={styles.sectionLabel}>Phase 1</p>
                 <h2>Register a guitar</h2>
               </div>
               <span>{guitars.length} guitar(s) registered</span>
@@ -102,23 +116,38 @@ function App() {
           <section className={styles.contentSection}>
             <div className={styles.sectionHeading}>
               <div>
-                <p className={styles.sectionLabel}>Phase 2</p>
                 <h2>Guitar registry</h2>
               </div>
-              <span>{guitars.length} total record(s)</span>
+              <span>
+                Showing {filteredGuitars.length} of {guitars.length} record(s)
+              </span>
             </div>
-            <GuitarTable
-              guitars={guitars}
-              selectedGuitar={selectedGuitar}
-              onSelectGuitar={selectGuitar}
-            />
+            <div className={styles.filterBar}>
+              <label htmlFor="roleFilter">Filter by user role</label>
+              <select
+                id="roleFilter"
+                value={roleFilter}
+                onChange={(event) => setRoleFilter(event.target.value)}
+              >
+                <option value="All">All roles</option>
+                <option value="Merchant">Merchant</option>
+                <option value="Consumer">Consumer</option>
+              </select>
+            </div>
+            <div className={styles.registryLayout}>
+              <GuitarTable
+                guitars={filteredGuitars}
+                selectedGuitar={selectedGuitar}
+                onSelectGuitar={selectGuitar}
+              />
+              <GuitarDetails guitar={activeGuitar} />
+            </div>
           </section>
         )}
       </main>
 
       <footer className={styles.footer}>
         <p>Guitar Store Inventory Manager</p>
-        <p>React Practical Exam · Set 2</p>
       </footer>
     </div>
   )

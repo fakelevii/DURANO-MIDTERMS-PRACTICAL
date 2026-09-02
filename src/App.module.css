@@ -86,8 +86,29 @@
   margin-top: 45px;
 }
 
-.formSection {
+.contentSection {
   margin-top: 45px;
+}
+
+.viewButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.viewButtons button {
+  padding: 10px 15px;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.viewButtons button:hover,
+.viewButtons .activeButton {
+  color: #203b2a;
+  background-color: white;
 }
 
 .sectionHeading {
@@ -165,6 +186,10 @@
 
   .welcomeCard h2 {
     font-size: 32px;
+  }
+
+  .viewButtons {
+    flex-direction: column;
   }
 
   .sectionHeading {

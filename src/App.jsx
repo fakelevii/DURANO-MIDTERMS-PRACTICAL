@@ -1,12 +1,20 @@
 import { useState } from 'react'
 import GuitarForm from './components/GuitarForm'
+import GuitarTable from './components/GuitarTable'
 import styles from './App.module.css'
 
 function App() {
   const [guitars, setGuitars] = useState([])
+  const [currentView, setCurrentView] = useState('form')
+  const [selectedGuitar, setSelectedGuitar] = useState(null)
 
   function addGuitar(newGuitar) {
     setGuitars([...guitars, newGuitar])
+    setCurrentView('table')
+  }
+
+  function selectGuitar(guitar) {
+    setSelectedGuitar(guitar)
   }
 
   return (
@@ -31,6 +39,22 @@ function App() {
               Register guitar information, browse the inventory, and view the
               complete details of a selected item.
             </p>
+            <div className={styles.viewButtons}>
+              <button
+                className={currentView === 'form' ? styles.activeButton : ''}
+                type="button"
+                onClick={() => setCurrentView('form')}
+              >
+                Registration Form
+              </button>
+              <button
+                className={currentView === 'table' ? styles.activeButton : ''}
+                type="button"
+                onClick={() => setCurrentView('table')}
+              >
+                Registry Table
+              </button>
+            </div>
           </div>
           <div className={styles.guitarMark} aria-hidden="true">♪</div>
         </section>
@@ -63,16 +87,33 @@ function App() {
           </div>
         </section>
 
-        <section className={styles.formSection}>
-          <div className={styles.sectionHeading}>
-            <div>
-              <p className={styles.sectionLabel}>Phase 1</p>
-              <h2>Register a guitar</h2>
+        {currentView === 'form' ? (
+          <section className={styles.contentSection}>
+            <div className={styles.sectionHeading}>
+              <div>
+                <p className={styles.sectionLabel}>Phase 1</p>
+                <h2>Register a guitar</h2>
+              </div>
+              <span>{guitars.length} guitar(s) registered</span>
             </div>
-            <span>{guitars.length} guitar(s) registered</span>
-          </div>
-          <GuitarForm onAddGuitar={addGuitar} />
-        </section>
+            <GuitarForm onAddGuitar={addGuitar} />
+          </section>
+        ) : (
+          <section className={styles.contentSection}>
+            <div className={styles.sectionHeading}>
+              <div>
+                <p className={styles.sectionLabel}>Phase 2</p>
+                <h2>Guitar registry</h2>
+              </div>
+              <span>{guitars.length} total record(s)</span>
+            </div>
+            <GuitarTable
+              guitars={guitars}
+              selectedGuitar={selectedGuitar}
+              onSelectGuitar={selectGuitar}
+            />
+          </section>
+        )}
       </main>
 
       <footer className={styles.footer}>

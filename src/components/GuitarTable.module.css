@@ -1,0 +1,100 @@
+.tableCard {
+  padding: 25px;
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #dddddd;
+}
+
+.table th {
+  color: white;
+  background-color: #31553c;
+}
+
+.table tbody tr {
+  cursor: pointer;
+}
+
+.table tbody tr:hover {
+  background-color: #f0f5f1;
+}
+
+.table .selectedRow {
+  background-color: #e3eee6;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.pagination button {
+  padding: 9px 16px;
+  color: white;
+  background-color: #31553c;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  color: #777777;
+  background-color: #dddddd;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  color: #555555;
+  font-size: 14px;
+}
+
+.emptyMessage {
+  padding: 35px;
+  text-align: center;
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+}
+
+.emptyMessage h3 {
+  margin: 0 0 8px;
+}
+
+.emptyMessage p {
+  margin: 0;
+  color: #666666;
+}
+
+@media (max-width: 700px) {
+  .tableCard {
+    padding: 15px;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .pagination {
+    gap: 10px;
+  }
+}

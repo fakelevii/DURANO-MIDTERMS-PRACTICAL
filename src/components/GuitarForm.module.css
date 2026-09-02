@@ -1,0 +1,93 @@
+.form {
+  padding: 30px;
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label,
+.roleField legend {
+  margin-bottom: 8px;
+  color: #203b2a;
+  font-weight: bold;
+}
+
+.field input,
+.field select {
+  padding: 11px;
+  border: 1px solid #bbbbbb;
+  border-radius: 5px;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: 2px solid #6f957b;
+  border-color: #31553c;
+}
+
+.roleField {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.radioOptions {
+  display: flex;
+  gap: 24px;
+  padding: 11px 0;
+}
+
+.radioOptions label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.error {
+  margin: 6px 0 0;
+  color: #b3261e;
+  font-size: 13px;
+}
+
+.submitButton {
+  margin-top: 25px;
+  padding: 12px 22px;
+  color: white;
+  background-color: #31553c;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #203b2a;
+}
+
+.success {
+  margin: 18px 0 0;
+  padding: 12px;
+  color: #245c31;
+  background-color: #e6f4e9;
+  border-radius: 5px;
+}
+
+@media (max-width: 700px) {
+  .form {
+    padding: 22px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}

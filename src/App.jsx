@@ -1,6 +1,14 @@
+import { useState } from 'react'
+import GuitarForm from './components/GuitarForm'
 import styles from './App.module.css'
 
 function App() {
+  const [guitars, setGuitars] = useState([])
+
+  function addGuitar(newGuitar) {
+    setGuitars([...guitars, newGuitar])
+  }
+
   return (
     <div className={styles.app}>
       <header className={styles.header}>
@@ -53,6 +61,17 @@ function App() {
               <p>Select a row to display the guitar's complete profile.</p>
             </article>
           </div>
+        </section>
+
+        <section className={styles.formSection}>
+          <div className={styles.sectionHeading}>
+            <div>
+              <p className={styles.sectionLabel}>Phase 1</p>
+              <h2>Register a guitar</h2>
+            </div>
+            <span>{guitars.length} guitar(s) registered</span>
+          </div>
+          <GuitarForm onAddGuitar={addGuitar} />
         </section>
       </main>
 
